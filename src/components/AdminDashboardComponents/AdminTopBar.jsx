@@ -11,7 +11,7 @@ const AdminTopBar = () => {
             <Box color={websiteColor.textLightColor}>Hello Teja Rockzz, welcome back!</Box>
          </VStack>
 
-         <HStack w={{md:"20%"}} gap={'15px'}>
+         <HStack w={{md:"20%"}} gap={'15px'} justifyContent={'flex-end'}>
             <Box w={'40px'} h={'40px'} bgColor={websiteColor.white} display={'flex'} alignItems={'center'} justifyContent={'center'} fontSize={'1.3rem'} overflow={'hidden'} cursor={'pointer'} borderRadius={'10px'} boxShadow={'1px 0px 1px rgb(0,0,0,0.7)'}><IoSettingsOutline /></Box>
             <VStack alignItems={'flex-start'} gap={'1px'}>
                 <Box fontSize={'0.9rem'} fontWeight={'semibold'}>Teja Rockzz</Box>
