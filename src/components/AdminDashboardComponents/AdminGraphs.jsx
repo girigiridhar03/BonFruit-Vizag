@@ -2,6 +2,8 @@ import { Box, Flex, HStack, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 import { BsCardList } from "react-icons/bs";
 import websiteColor from "../../theme";
 import { MdOutlineArrowOutward } from "react-icons/md";
+import { LuUsers } from "react-icons/lu";
+import { RiMoneyRupeeCircleLine } from "react-icons/ri";
 import React from "react";
 import {
   Area,
@@ -207,7 +209,7 @@ const AdminGraphs = () => {
             borderRadius={"15px"}
             color={websiteColor.white}
           >
-            <BsCardList />
+            <LuUsers />
           </Box>
           <VStack alignItems={"flex-start"} gap={"2px"} w={"80%"}>
             <Box color={websiteColor.textLightColor} fontSize={"1.2rem"}>
@@ -252,7 +254,7 @@ const AdminGraphs = () => {
             borderRadius={"15px"}
             color={websiteColor.white}
           >
-            <BsCardList />
+            <RiMoneyRupeeCircleLine />
           </Box>
           <VStack alignItems={"flex-start"} gap={"2px"} w={"80%"}>
             <Box color={websiteColor.textLightColor} fontSize={"1.2rem"}>
