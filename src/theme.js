@@ -13,7 +13,8 @@ const websiteColor = {
     primaryButtonText: '#ffffff',// Primary button text color
     secondaryButton: '#feece8',   // Secondary button or hover state
     primaryText: '#f2879b',       // Headings text color
-    secondaryText: '#333333'      // Body/secondary text color (recommended for readability)
+    secondaryText: '#333333',      // Body/secondary text color (recommended for readability)
+    textLightColor : "rgb(0,0,0,0.6)" //light black
   };
   
 export default websiteColor
