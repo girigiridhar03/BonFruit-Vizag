@@ -32,17 +32,6 @@ html, body {
   font-weight: 550;
   background-color: #ffede9; /* blushPink */
 }
-
-.admin:hover::after{
-    content: '';
-    position: absolute;
-    width: 3px;
-    height: 51%;
-    border-radius: 10px;
-    background-color: #f2879b; /*mutedrose */
-    left: -5%;
-}
-
 /* Persistent active styles */
 .admin.active {
     color: #f2879b; /* mutedRose */
