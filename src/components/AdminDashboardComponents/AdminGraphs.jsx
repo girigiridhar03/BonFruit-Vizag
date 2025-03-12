@@ -1,10 +1,19 @@
-import { Box, Flex, HStack, SimpleGrid, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  HStack,
+  SimpleGrid,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import { BsCardList } from "react-icons/bs";
 import websiteColor from "../../theme";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { LuUsers } from "react-icons/lu";
 import { RiMoneyRupeeCircleLine } from "react-icons/ri";
-import React from "react";
+import React, { useState } from "react";
 import {
   Area,
   AreaChart,
@@ -24,6 +33,9 @@ import {
   Legend as ChartLegend,
 } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
+import RecentOrdersTable from "../AdminUtils/RecentOrdersTable";
+import { useDispatch, useSelector } from "react-redux";
+import { isToggleDialog } from "../../Store/Client/clientReducer";
 
 ChartJS.register(ArcElement, ChartTooltip, ChartLegend);
 
@@ -64,6 +76,9 @@ const dashBoardData = {
 };
 
 const AdminGraphs = () => {
+  const { toggleDialog } = useSelector((state) => state.clientReducer);
+  const dispatch = useDispatch();
+
   const COLORS = [
     websiteColor.mutedRose, // Primary (Muted Rose)
     websiteColor.blushPink, // Blush Pink
@@ -136,14 +151,117 @@ const AdminGraphs = () => {
       />
     );
   };
+
+  const tableData = [
+    {
+      orderId: "ORD1025",
+      photo: "photo 1",
+      menu: "ABC Juice",
+      qty: "3",
+      amount: 200,
+      customername: "Nani",
+      orderStatus: "On Process",
+    },
+    {
+      orderId: "ORD1026",
+      photo: "photo 2",
+      menu: "Watermelon Juice",
+      qty: "2",
+      amount: 150,
+      customername: "Sai",
+      orderStatus: "On Process",
+    },
+    {
+      orderId: "ORD1028",
+      photo: "photo 3",
+      menu: "Orange Juice",
+      qty: "3",
+      amount: 100,
+      customername: "Teja",
+      orderStatus: "Completed",
+    },
+  ];
+
+  const [tbData, setTbData] = useState(tableData);
+
+  const handleComplete = () => {
+    const updatedStatus = tbData.map((item) =>
+      item.orderId === toggleDialog?.orderId
+        ? { ...item, orderStatus: "Completed" }
+        : item
+    );
+  
+    setTbData(updatedStatus);
+  
+    dispatch(isToggleDialog({ orderId: "", isOpen: false }));
+  };
+  
+
   return (
-    <Box mt={"1.5rem"}>
-      <SimpleGrid
-        columns={3}
-        gap={"15px"}
-        w={{md:"100%"}}
-        mb={"2rem"}
-      >
+    <Box mt={"1.5rem"} position={"relative"} overflow={"hidden"}>
+      {/* Dialog Box */}
+      {toggleDialog.isOpen && (
+        <Box
+          position={"fixed"}
+          h={"100vh"}
+          w={"100%"}
+          top={0}
+          left={0}
+          bottom={0}
+          bgColor={"#7777"}
+          display={"flex"}
+          justifyContent={"center"}
+          zIndex={30}
+        >
+          <Box
+            bgColor={websiteColor.white}
+            w={"75%"}
+            maxW={"600px"}
+            height={"200px"}
+            order
+            boxShadow={"md"}
+            p={"2rem"}
+            borderRadius={"20px"}
+            position={"relative"}
+            mt={"10rem"}
+          >
+            <Heading fontSize={"1.5rem"}>Mark Order as Complete</Heading>
+            <Text mt={"1rem"} color={websiteColor.textLightColor}>
+              {" "}
+              Are you sure you want to mark order  #{
+                toggleDialog?.orderId
+              } as 
+              complete?
+            </Text>
+            <HStack
+              position={"absolute"}
+              bottom={4}
+              justifyContent={"end"}
+              w={"100%"}
+              right={3}
+            >
+              <Button
+                bgColor={websiteColor.mutedRose}
+                color={websiteColor.white}
+                onClick={handleComplete}
+              >
+                Completed
+              </Button>
+              <Button
+                bgColor={"none"}
+                borderColor={websiteColor.textLightColor}
+                color={websiteColor.textLightColor}
+                onClick={() =>
+                  dispatch(isToggleDialog({ orderId: "", isOpen: false }))
+                }
+              >
+                Cancel
+              </Button>
+            </HStack>
+          </Box>
+        </Box>
+      )}
+      <SimpleGrid columns={3} gap={"15px"} w={{ md: "100%" }} mb={"2rem"}>
         {/* Total Orders */}
         <HStack
           bgColor={websiteColor.white}
@@ -361,6 +479,17 @@ const AdminGraphs = () => {
               </Bar>
             </BarChart>
           </ResponsiveContainer>
+        </Box>
+
+        {/* Recent Orders Table */}
+        <Box
+          gridColumn={"span 3"}
+          bgColor={websiteColor.white}
+          p={"2rem"}
+          borderRadius={"20px"}
+          mb={"1rem"}
+        >
+          <RecentOrdersTable data={tbData} />
         </Box>
       </SimpleGrid>
     </Box>

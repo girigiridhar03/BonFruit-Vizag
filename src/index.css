@@ -49,3 +49,15 @@ html, body {
     background-color: #f2879b; /* mutedRose */
     left: -5%;
 }
+
+.tableStyles {
+     background-color: #ebececd0;
+}
+/* style={{ textAlign: "center", padding: "2rem",color:websiteColor.textLightColor, fontSize:"1.1rem",fontWeight:'500' }} */
+.tableColumnStyles {
+   text-align: center;
+   padding: 1rem;
+   color: #575656b7;
+   font-size: 1.1rem;
+   font-weight: 500;
+}

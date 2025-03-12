@@ -5,13 +5,16 @@ import websiteLogo from "/bonfruit-icon.png";
 import { RxDashboard } from "react-icons/rx";
 import { BsCardList } from "react-icons/bs";
 import { CiStar } from "react-icons/ci";
+import { useLocation } from "react-router-dom";
 
 const AdminNavbar = () => {
-  const [activeItem, setActiveItem] = useState("Dashboard");
+  const location = useLocation();
+  const [activeItem, setActiveItem] = useState(location.pathname);
 
   const handleClick = (item) => {
     setActiveItem(item);
   };
+
 
   return (
     <Box
@@ -38,8 +41,8 @@ const AdminNavbar = () => {
         h={"100%"}
       >
         <HStack
-          className={`admin ${activeItem === "Dashboard" ? "active" : ""}`}
-          onClick={() => handleClick("Dashboard")}
+          className={`admin ${activeItem === "/dashboard" ? "active" : ""}`}
+          onClick={() => handleClick("/dashboard")}
         >
           <Box>
             <RxDashboard />
