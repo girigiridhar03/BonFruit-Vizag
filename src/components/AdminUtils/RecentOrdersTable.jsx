@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import websiteColor from "../../theme";
 import {
   Box,
@@ -9,21 +9,9 @@ import {
   Portal,
   Text,
 } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
-import { isToggleDialog } from "../../Store/Client/clientReducer";
 
 const RecentOrdersTable = ({ data }) => {
-  const [selectedOrder, setSelectedOrder] = useState(null);
-  const dispatch = useDispatch();
 
-  const toggleChecked = (item) => {
-    if (selectedOrder === item.orderId) {
-      setSelectedOrder(null);
-    } else {
-      setSelectedOrder(item.orderId);
-      dispatch(isToggleDialog({orderId:item?.orderId,isOpen:true}))
-    }
-  };
 
   return (
     <Box w="100%" position={'relative'}>
@@ -55,7 +43,6 @@ const RecentOrdersTable = ({ data }) => {
       >
         <thead className="tableStyles">
           <tr>
-            <th></th>
             <th
               style={{
                 padding: "13px",
@@ -131,37 +118,6 @@ const RecentOrdersTable = ({ data }) => {
         <tbody style={{ width: "100%" }}>
           {data.map((item) => (
             <tr key={item.orderId} style={{ width: "100%" }}>
-              <td className="tableColumnStyles">
-                <Box
-                  width="20px"
-                  height="20px"
-                  border={`2px solid ${websiteColor.mutedRose}`}
-                  borderRadius="5px"
-                  cursor="pointer"
-                  bg={
-                    selectedOrder === item.orderId || item.orderStatus === "Completed"
-                      ? websiteColor.mutedRose
-                      : "transparent"
-                  }
-                  onClick={item.orderStatus === "Completed" ? undefined : () => toggleChecked(item)}
-                  pointerEvents={item.orderStatus === "Completed" ? "none" : "auto"}
-                  opacity={item.orderStatus === "Completed" ? 0.5 : 1}
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                >
-                  {(selectedOrder === item.orderId || item?.orderStatus === "Completed") && (
-                    <Box
-                      as="span"
-                      color="white"
-                      fontSize="14px"
-                      fontWeight="bold"
-                    >
-                      ✔
-                    </Box>
-                  )}
-                </Box>
-              </td>
               <td className="tableColumnStyles">{item.orderId}</td>
               <td className="tableColumnStyles">{item.photo}</td>
               <td className="tableColumnStyles">{item.menu}</td>

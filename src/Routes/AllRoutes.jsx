@@ -8,7 +8,8 @@ import Contact from '../Pages/Contact/Contact'
 import TermsAndConditions from '../Pages/TermsAndConditions/TermsAndConditions'
 import AdminLayout from '../Layouts/AdminLayout'
 import Dashboard from '../Pages/Dashboard/Dashboard'
-
+import Orders from '../Pages/Orders/Orders'
+import AdminOrderDetails from '../components/AdminOrdersComponents/AdminOrderDetails'
 const AllRoutes = () => {
   return (
    <Routes>
@@ -24,9 +25,11 @@ const AllRoutes = () => {
       {/* Admin Routes */}
       <Route element={<AdminLayout />}>
          <Route path='/dashboard' element={<Dashboard />} />
+         <Route path='/orders' element={<Orders />} />
+         <Route path='/orderDetails/:id' element={<AdminOrderDetails />} />
       </Route>
    </Routes>
   )
-}
+} 
 
 export default AllRoutes
