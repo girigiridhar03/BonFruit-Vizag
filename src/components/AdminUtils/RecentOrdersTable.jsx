@@ -1,37 +1,30 @@
 import React from "react";
 import websiteColor from "../../theme";
-import {
-  Box,
-  Button,
-  CloseButton,
-  Dialog,
-  HStack,
-  Portal,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Button, HStack, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const RecentOrdersTable = ({ data }) => {
-
-
   return (
-    <Box w="100%" position={'relative'}>
+    <Box w="100%" position={"relative"}>
       <HStack w="100%" justifyContent="space-between" mb="1rem">
         <Text fontSize="lg" fontWeight="bold" mb="1rem">
           Recent Orders
         </Text>
-        <Button
-          variant="outline"
-          borderColor={websiteColor.textLightColor}
-          _hover={{
-            bgColor: websiteColor.mutedRose,
-            color: websiteColor.white,
-            border: "none",
-          }}
-          borderRadius="10px"
-          color={websiteColor.textLightColor}
-        >
-          See All Orders
-        </Button>
+        <Link to={"/orders"}>
+          <Button
+            variant="outline"
+            borderColor={websiteColor.textLightColor}
+            _hover={{
+              bgColor: websiteColor.mutedRose,
+              color: websiteColor.white,
+              border: "none",
+            }}
+            borderRadius="10px"
+            color={websiteColor.textLightColor}
+          >
+            See All Orders
+          </Button>
+        </Link>
       </HStack>
       <table
         width="100%"

@@ -3,18 +3,24 @@ import { Avatar, Box, HStack, VStack } from "@chakra-ui/react";
 import React from "react";
 import { IoSettingsOutline } from "react-icons/io5";
 import { Link, useLocation } from "react-router-dom";
+import { conditionHeadingBasedOnRoute } from "./NavDetails";
+
+
+
+
 const AdminTopBarTwo = ({ navs,id }) => {
 
     const location = useLocation();
+
 
   return (
     <HStack w={"100%"} justifyContent={"space-between"}>
       <VStack alignItems={"flex-start"} gap={"2px"}>
         <Box fontSize={"2rem"} fontWeight={"semibold"}>
-          {navs.heading1}
+          {conditionHeadingBasedOnRoute()}
         </Box>
         <HStack>
-          {navs.breadCrumbs.map((nav, index) => (
+          {navs().breadCrumbs.map((nav, index) => (
            <React.Fragment key={index}>
             <Link  to={nav.pathname === "/orderDetails" ? "" : nav.pathname}>
             <Box  color={location.pathname === nav.pathname || (id && `${nav.pathname}/${id}`) || nav.pathname === "/dashboard" ? websiteColor.mutedRose : websiteColor.textLightColor} fontWeight={location.pathname === nav.pathname ? 550 : 500} cursor={'pointer'}>
@@ -22,7 +28,7 @@ const AdminTopBarTwo = ({ navs,id }) => {
             </Box>
             </Link>
            
-             <Box  fontSize={'0.7rem'}>{index !== navs.breadCrumbs.length - 1 && "/"}</Box>
+             <Box  fontSize={'0.7rem'}>{index !== navs().breadCrumbs.length - 1 && "/"}</Box>
            </React.Fragment>
           ))}
         </HStack>

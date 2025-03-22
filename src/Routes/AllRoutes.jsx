@@ -10,6 +10,9 @@ import AdminLayout from '../Layouts/AdminLayout'
 import Dashboard from '../Pages/Dashboard/Dashboard'
 import Orders from '../Pages/Orders/Orders'
 import AdminOrderDetails from '../components/AdminOrdersComponents/AdminOrderDetails'
+import Menu from '../Pages/Menu/Menu'
+import EditMenu from '../Pages/Menu/EditMenu'
+import ViewMenu from '../Pages/Menu/ViewMenu'
 const AllRoutes = () => {
   return (
    <Routes>
@@ -27,6 +30,9 @@ const AllRoutes = () => {
          <Route path='/dashboard' element={<Dashboard />} />
          <Route path='/orders' element={<Orders />} />
          <Route path='/orderDetails/:id' element={<AdminOrderDetails />} />
+         <Route path='/addmenu' element={<Menu />} />
+         <Route path='/editmenu' element={<EditMenu />} />
+         <Route path='/viewmenu' element={<ViewMenu />} />
       </Route>
    </Routes>
   )

@@ -1,6 +1,6 @@
 import { Avatar, Box, HStack, Image, VStack } from "@chakra-ui/react";
-import React from "react";
-import { topBarNavs } from "../AdminUtils/NavDetails";
+import React, { useEffect } from "react";
+import { conditionHeadingBasedOnRoute, topBarNavs } from "../AdminUtils/NavDetails";
 import AdminTopBarTwo from "../AdminUtils/AdminTopBarTwo";
 import { useParams } from "react-router-dom";
 import websiteColor from "../../theme";
@@ -10,6 +10,11 @@ import { HiOutlineMailOpen } from "react-icons/hi";
 import { BsTelephone } from "react-icons/bs";
 const AdminOrderDetails = () => {
   const { id } = useParams();
+
+
+  useEffect(()=>{
+    conditionHeadingBasedOnRoute(id);
+  },[id])
 
   const orderDetails = [
     {
@@ -186,20 +191,29 @@ const AdminOrderDetails = () => {
 
           <hr style={{ marginTop: "6rem", borderColor: "#dddddd" }} />
 
-         <VStack alignItems={'flex-start'} gap={'1.9rem'} mt={'2rem'}>
-         <HStack gap={'1rem'}>
-             <Box fontSize={'1.5rem'}><IoLocationOutline /></Box>
-             <Box>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio, deserunt.</Box>
-          </HStack>
-          <HStack gap={'1rem'}>
-             <Box fontSize={'1.5rem'}><HiOutlineMailOpen /></Box>
-             <Box>segunadebyao@gmail.com</Box>
-          </HStack>
-          <HStack gap={'1rem'}>
-             <Box fontSize={'1.5rem'}><BsTelephone /></Box>
-             <Box>+91 9876543210</Box>
-          </HStack>
-         </VStack>
+          <VStack alignItems={"flex-start"} gap={"1.9rem"} mt={"2rem"}>
+            <HStack gap={"1rem"}>
+              <Box fontSize={"1.5rem"}>
+                <IoLocationOutline />
+              </Box>
+              <Box>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio,
+                deserunt.
+              </Box>
+            </HStack>
+            <HStack gap={"1rem"}>
+              <Box fontSize={"1.5rem"}>
+                <HiOutlineMailOpen />
+              </Box>
+              <Box>segunadebyao@gmail.com</Box>
+            </HStack>
+            <HStack gap={"1rem"}>
+              <Box fontSize={"1.5rem"}>
+                <BsTelephone />
+              </Box>
+              <Box>+91 9876543210</Box>
+            </HStack>
+          </VStack>
         </Box>
       </HStack>
     </Box>

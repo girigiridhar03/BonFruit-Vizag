@@ -55,13 +55,16 @@ const AdminNavbar = () => {
             <Box>Orders</Box>
           </HStack>
         </Link>
-
-        <HStack className={`admin`}>
+         
+         <Link to={"/addmenu"}>
+         <HStack className={`admin ${location.pathname === "/addmenu" || location.pathname === "/editmenu" || location.pathname === "/viewmenu" ? "active" : ""}`}>
           <Box>
           <IoCreateOutline />
           </Box>
           <Box>Menu</Box>
         </HStack>
+         </Link>
+      
         <HStack className={'admin'}>
           <Box>
             <CiStar />
