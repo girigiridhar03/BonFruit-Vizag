@@ -3,22 +3,19 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isLoading: false,
   isError: false,
-  toggleDialog: {
-    orderId : "",
-    isOpen : false
-  },
+  isMenu: false,
 };
 
 const clientReducer = createSlice({
   name: "clientSlice",
   initialState,
   reducers: {
-    isToggleDialog(state, { payload }) {
-      state.toggleDialog = payload;
+    isMenuToggle(state, { payload }) {
+      state.isMenu = payload;
     },
   },
 });
 
-export const { isToggleDialog } = clientReducer.actions;
+export const {isMenuToggle} = clientReducer.actions;
 
 export default clientReducer.reducer;

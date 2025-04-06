@@ -21,10 +21,15 @@ export const MenuTopBarNav = (id = "") => ({
   heading1: "Add Menu",
   heading2: "Edit Menu",
   heading3: "View Menu",
+  heading4:"All Menu's",
   breadCrumbs: [
     {
       navName: "Dashboard",
       pathname: "/dashboard",
+    },
+    {
+      navName: "All Menu's",
+      pathname: "/allmenu",
     },
     {
       navName: "Add Menu",
@@ -59,6 +64,9 @@ export const conditionHeadingBasedOnRoute = () => {
 
     case pathname === "/viewmenu":
       return MenuTopBarNav().heading3;
+    
+    case pathname === "/allmenu":
+      return MenuTopBarNav().heading4
 
     default:
       return;

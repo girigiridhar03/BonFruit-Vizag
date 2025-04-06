@@ -5,11 +5,9 @@ import { Link } from 'react-router-dom'
 const HomeHeader = () => {
   return (
     <div>
-      <Link to={'/dashboard'}>
-      <Button>Go To DashBoard</Button>
-      </Link>
+      Home Header
     </div>
   )
-}
+} 
 
 export default HomeHeader

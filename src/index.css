@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+/* .bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+} */
 
 html,
 body {
@@ -10,12 +16,12 @@ body {
   font-family: "Poppins", sans-serif;
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
 }
 
 * {
   box-sizing: inherit;
 }
-
 .admin {
   font-size: 1.4rem;
   color: #777777;
@@ -203,4 +209,9 @@ body {
 
 .file-input::file-selector-button:hover {
   background-color: #e76b8b;             /* Darker button on hover */
+}
+
+.icon {
+  transform: rotate(90deg);
+  font-size: 2rem;
 }

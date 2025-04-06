@@ -35,7 +35,7 @@ import {
 import { Doughnut } from "react-chartjs-2";
 import RecentOrdersTable from "../AdminUtils/RecentOrdersTable";
 import { useDispatch, useSelector } from "react-redux";
-import { isToggleDialog } from "../../Store/Client/clientReducer";
+import { isToggleDialog } from "../../Store/Admin/adminReducer";
 
 ChartJS.register(ArcElement, ChartTooltip, ChartLegend);
 
@@ -76,7 +76,7 @@ const dashBoardData = {
 };
 
 const AdminGraphs = () => {
-  const { toggleDialog } = useSelector((state) => state.clientReducer);
+  const { toggleDialog } = useSelector((state) => state.adminReducer);
   const dispatch = useDispatch();
 
   const COLORS = [

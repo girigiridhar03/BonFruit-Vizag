@@ -13,6 +13,7 @@ import AdminOrderDetails from '../components/AdminOrdersComponents/AdminOrderDet
 import Menu from '../Pages/Menu/Menu'
 import EditMenu from '../Pages/Menu/EditMenu'
 import ViewMenu from '../Pages/Menu/ViewMenu'
+import AllMenu from '../Pages/Menu/AllMenu'
 const AllRoutes = () => {
   return (
    <Routes>
@@ -30,6 +31,7 @@ const AllRoutes = () => {
          <Route path='/dashboard' element={<Dashboard />} />
          <Route path='/orders' element={<Orders />} />
          <Route path='/orderDetails/:id' element={<AdminOrderDetails />} />
+         <Route path='/allmenu' element={<AllMenu />} />
          <Route path='/addmenu' element={<Menu />} />
          <Route path='/editmenu' element={<EditMenu />} />
          <Route path='/viewmenu' element={<ViewMenu />} />
