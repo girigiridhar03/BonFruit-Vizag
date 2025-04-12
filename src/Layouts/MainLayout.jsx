@@ -30,7 +30,7 @@ const MainLayout = () => {
         w={"100%"}
         h={"100vh"}
         bgColor={"rgba(0, 0, 0, 0.8)"}
-        zIndex={30}
+        zIndex={100}
         display={"flex"}
         justifyContent={"flex-end"}
         opacity={isMenu ? 1 : 0}

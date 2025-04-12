@@ -9,13 +9,13 @@ import { Pagination, Autoplay } from 'swiper/modules';
 
 const HomeHeader = () => {
   return (
-    <Box mt={['6.2rem']} w={'100%'} h={['25vh','30vh','50vh','65vh','70vh','85vh']}>
+    <Box mt={{base:"6.2rem",xl:"6.8rem"}} w={'100%'} h={['25vh','30vh','50vh','65vh','70vh','89vh']}>
       <Swiper
         pagination={{
           dynamicBullets: true,
         }}
         autoplay={{
-          delay: 10200,
+          delay: 11000,
           disableOnInteraction: false,
         }}
         loop={true}
@@ -41,7 +41,7 @@ const HomeHeader = () => {
             muted
             loop
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            playsInline
+             playsInline
           />
         </SwiperSlide>
       </Swiper>

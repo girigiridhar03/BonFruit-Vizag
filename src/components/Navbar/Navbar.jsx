@@ -43,6 +43,7 @@ const Navbar = () => {
       top={0}
       left={0}
       right={0}
+      zIndex={99}
     >
       <Box
         w={"95%"}
@@ -151,16 +152,17 @@ const Navbar = () => {
       {isProfile && (
         <Box
           w={"250px"}
-          position={"absolute"}
+          position={"fixed"}
           bgColor={websiteColor.softPink}
           right={{ base: "2.3%", md: "2%", lg: "1.5%" }}
-          top={"80%"}
+          top={"6rem"}
           boxShadow={"0px 4px 10px rgba(242, 135, 155, 0.4)"}
           borderRadius={"10px"}
           p={"1rem"}
           display={"flex"}
           flexDirection={"column"}
           gap={"0.7rem"}
+          zIndex={9999}
         >
           <Box borderBottom={`1px solid rgb(0,0,0,0.1)`} paddingBottom={"1rem"}>
             <HStack w={"100%"}>
