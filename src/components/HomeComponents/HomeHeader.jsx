@@ -30,6 +30,7 @@ const HomeHeader = () => {
             muted
             loop
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            playsInline
           />
         </SwiperSlide>
 
@@ -40,6 +41,7 @@ const HomeHeader = () => {
             muted
             loop
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            playsInline
           />
         </SwiperSlide>
       </Swiper>
