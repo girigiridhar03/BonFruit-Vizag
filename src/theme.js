@@ -14,7 +14,10 @@ const websiteColor = {
     secondaryButton: '#feece8',   // Secondary button or hover state
     primaryText: '#f2879b',       // Headings text color
     secondaryText: '#333333',      // Body/secondary text color (recommended for readability)
-    textLightColor : "#701E2D" //light black
+    textLightColor : "#701E2D", //light black
+    headingFontFamily : '"Bebas Neue", sans-serif',
+    headingFontSizes : {base:"1.7rem",sm:"2.2rem",md:"2.7rem"},
+    subHeadingFontSizes : {base:"1.1rem",md:"1rem",lg:"1rem"},
   };
   
 export default websiteColor

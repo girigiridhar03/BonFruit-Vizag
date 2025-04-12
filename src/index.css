@@ -22,6 +22,13 @@ body {
 * {
   box-sizing: inherit;
 }
+.containerStyles{
+  width: 95%;
+  max-width: 1550px;
+  margin-inline: auto;
+  text-align: center;
+  margin-block: 2rem;
+}
 .admin {
   font-size: 1.4rem;
   color: #777777;
